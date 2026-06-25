@@ -1,27 +1,26 @@
 package modelos;
 
-
-public class Mortifago extends Personaje{
-	public Mortifago(String nombre, double nivelMagia, double puntosVida) {
+public class Seguidor extends Personaje{
+	public Seguidor(String nombre, double nivelMagia, double puntosVida) {
         super(nombre, nivelMagia, puntosVida);
     }
 
-    // Bonificación por uso de magia oscura
+    // Aunque posee afinidad, es un mago de bajo nivel
     @Override
     public double obtenerMultiplicadorAtaqueOscuro() {
-        return 1.8; 
+        return 0.8; 
     }
 
-    // PenaliZación por uso de magia de curación
+    // Penalizacion por mortifago
     @Override
     public double obtenerMultiplicadorCuracion() {
         return 0.4; 
     }
 
-    // Defensa estandar disminuida
+    // Mago de bajo nivel
     @Override
     public double obtenerMultiplicadorDefensa() {
-        return 0.8;
+        return 0.6;
     }
 
 }
