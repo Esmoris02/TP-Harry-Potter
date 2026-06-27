@@ -1,6 +1,6 @@
 package modelos;
 
-public class Comandante extends Personaje{
+public class Comandante extends Mortifago{
 	public Comandante(String nombre, double nivelMagia, double puntosVida) {
         super(nombre, nivelMagia, puntosVida);
     }

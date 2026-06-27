@@ -1,6 +1,6 @@
 package modelos;
 
-public class Seguidor extends Personaje{
+public class Seguidor extends Mortifago{
 	public Seguidor(String nombre, double nivelMagia, double puntosVida) {
         super(nombre, nivelMagia, puntosVida);
     }
