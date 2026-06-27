@@ -1,11 +1,13 @@
 package modelos;
 
 import java.util.List;
+import java.util.Random;
 import java.util.LinkedList;
+import java.util.Set;
 import hechizos.Hechizo;
 
 public abstract class Personaje {
-	public  String nombre;
+	public String nombre;
     public double nivelMagia;
     public double puntosVida;
     public boolean protegido;
@@ -18,6 +20,10 @@ public abstract class Personaje {
         this.puntosVida = puntosVida;
         //futura implementación de hechizos 
         //this.hechizosDisponibles = new ArrayList<>();
+    }
+    
+    public String getNombre() {
+    	return nombre;
     }
     
     public void recibirDanio(double cantidad) {
@@ -43,7 +49,23 @@ public abstract class Personaje {
         this.hechizosDisponibles.add(hechizo);
     }
     
-    public void lanzarHechizo(String nombreHechizo, Personaje objetivo) {
+    public Hechizo elegirHechizo(Set<Hechizo> hechizosUsadosEnTurno) {
+    	List<Hechizo> hechizosDisponiblesParaUsar = new LinkedList<>();
+    	Random rand = new Random();
+    	int indice;
+    	for(Hechizo h: hechizosDisponibles) {
+    		if(!hechizosUsadosEnTurno.contains(h)) {
+    			hechizosDisponiblesParaUsar.add(h);
+    		}
+    	}
+    	if(hechizosDisponiblesParaUsar.isEmpty()) {
+    		return null;
+    	}
+    	indice = rand.nextInt(hechizosDisponiblesParaUsar.size());
+    	return hechizosDisponiblesParaUsar.get(indice);
+    }
+    
+    /*public void lanzarHechizo(Hechizo nombreHechizo, Personaje objetivo) {
     	for(Hechizo h : hechizosDisponibles) {
     		if(h.getClass().getSimpleName().equals(nombreHechizo)) {//Devuelve el objeto real dentro de la lista y compara con el nombre de hechizo solicitado.
     			h.ejecutar(this, objetivo);							//Si encuentra ejecuta
@@ -51,9 +73,7 @@ public abstract class Personaje {
     		}
     		throw new IllegalArgumentException("No conoce el hechizo");
     	}
-    }
-  
-
+    }*/
     
     public abstract double obtenerMultiplicadorAtaqueOscuro();
     public abstract double obtenerMultiplicadorCuracion();
