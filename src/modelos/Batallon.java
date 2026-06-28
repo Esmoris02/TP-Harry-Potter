@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Random;
 import hechizos.Hechizo;
 
 public class Batallon {
@@ -43,6 +44,25 @@ public class Batallon {
 		
 	}
 	
+	public Personaje obtenerPersonajeSaludableAleatorio() {
+	    List<Personaje> saludables = new ArrayList<>();
+
+	    for (Personaje personaje : integrantes) {
+	        if (personaje.estaSaludable()) {
+	            saludables.add(personaje);
+	        }
+	    }
+
+	    if (saludables.isEmpty()) {
+	        return null;
+	    }
+
+	    Random rand = new Random();
+	    int indice = rand.nextInt(saludables.size());
+
+	    return saludables.get(indice);
+	}
+	
 	public void atacar(Batallon enemigo) {
 		Hechizo hechizoAEjecutar;
 		Personaje objetivo;
@@ -50,15 +70,24 @@ public class Batallon {
 		System.out.println("-- Inicio del Ataque --");
 		for(Personaje atacante : integrantes) {
 			if(atacante.estaSaludable()) {
-				objetivo = enemigo.obtenerPersonajeSaludable();
+//				objetivo = enemigo.obtenerPersonajeSaludable();
+				objetivo = enemigo.obtenerPersonajeSaludableAleatorio();
 				if(objetivo == null) {
 					break;
 				}
 				hechizoAEjecutar = atacante.elegirHechizo(hechizosUsadosEnTurnoActual);
 				if(hechizoAEjecutar != null) {
-					hechizoAEjecutar.ejecutar(atacante, objetivo);
-					hechizosUsadosEnTurnoActual.add(hechizoAEjecutar);
-					historialHechizos.get(atacante).add(hechizoAEjecutar);
+					if(atacante.getNivelMagia() < hechizoAEjecutar.getCoste()) {
+						atacante.recuperarMana();
+						System.out.println("Mana insuficiente para atacar, recuperando MP");
+					}
+					else {
+						atacante.gastoMana(hechizoAEjecutar.getCoste());
+						hechizoAEjecutar.ejecutar(atacante, objetivo);
+						hechizosUsadosEnTurnoActual.add(hechizoAEjecutar);
+						historialHechizos.get(atacante).add(hechizoAEjecutar);
+					}
+
 				}
 			}
 			

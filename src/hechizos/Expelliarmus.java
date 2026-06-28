@@ -4,7 +4,7 @@ import modelos.Personaje;
 
 public class Expelliarmus extends HechizoBase{
 	public Expelliarmus(){
-		super("Expelliarmus");
+		super("Expelliarmus", 10);
 	}
 	
 	public void ejecutar(Personaje lanzador, Personaje objetivo) {

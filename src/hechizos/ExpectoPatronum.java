@@ -4,7 +4,7 @@ import modelos.Personaje;
 
 public class ExpectoPatronum extends HechizoBase{
 	public ExpectoPatronum() {
-		super("ExpectoPatronum");
+		super("ExpectoPatronum", 15);
 	}
 	
 	public void ejecutar(Personaje lanzador, Personaje objetivo) {

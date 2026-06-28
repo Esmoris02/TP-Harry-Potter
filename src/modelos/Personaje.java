@@ -7,10 +7,10 @@ import java.util.Set;
 import hechizos.Hechizo;
 
 public abstract class Personaje {
-	public String nombre;
-    public double nivelMagia;
-    public double puntosVida;
-    public boolean protegido;
+	protected String nombre;
+	protected double nivelMagia;
+	protected double puntosVida;
+	protected boolean protegido;
     //futura implementación de hechizos 
     public List<Hechizo> hechizosDisponibles = new LinkedList<>();  
     
@@ -24,6 +24,26 @@ public abstract class Personaje {
     
     public String getNombre() {
     	return nombre;
+    }
+    
+    public double getNivelMagia() {
+    	return nivelMagia;
+    }
+    
+    public double getPuntosVida() {
+    	return puntosVida;
+    }
+    
+    public boolean getProtegido() {
+    	return protegido;
+    }
+    
+    public void setProtegido(boolean protegido) {
+    	this.protegido = protegido;
+    }
+    
+    public void gastoMana(double magia) {
+    	this.nivelMagia -= magia;
     }
     
     public void recibirDanio(double cantidad) {
@@ -63,6 +83,10 @@ public abstract class Personaje {
     	}
     	indice = rand.nextInt(hechizosDisponiblesParaUsar.size());
     	return hechizosDisponiblesParaUsar.get(indice);
+    }
+    
+    public void recuperarMana() {
+    	this.nivelMagia += 20 * this.obtenerMultiplicadorCuracion();
     }
     
     /*public void lanzarHechizo(Hechizo nombreHechizo, Personaje objetivo) {

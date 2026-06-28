@@ -5,7 +5,7 @@ import modelos.Personaje;
 //Hace que el objetivo estalle en llamas, causando gran daño destructivo.
 public class Confringo extends HechizoBase{
 	public Confringo(){
-		super("Confringo");
+		super("Confringo", 25);
 	}
 	
 	public void ejecutar(Personaje lanzador, Personaje objetivo) {

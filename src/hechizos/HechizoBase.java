@@ -4,14 +4,21 @@ import java.util.Objects;
 
 public abstract class HechizoBase implements Hechizo{
 	private String nombre;
+	private double coste;
 	
-	public HechizoBase(String nombre) {
+	public HechizoBase(String nombre, double coste) {
 		this.nombre = nombre;
+		this.coste = coste;
 	}
 	
 	@Override
 	public String getNombre() {
 		return this.nombre;
+	}
+	
+	@Override
+	public double getCoste() {
+		return this.coste;
 	}
 
 	@Override

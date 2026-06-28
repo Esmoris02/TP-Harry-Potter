@@ -1,12 +1,17 @@
 package fabricas;
 
+import java.util.Random;
+import hechizos.Hechizo;
 import hechizos.AvadaKedabra;
 import hechizos.ExpectoPatronum;
 import hechizos.Expelliarmus;
-import hechizos.Hechizo;
 import hechizos.Protego;
+import hechizos.Confringo;
 
 public class FabricaHechizos {
+	
+	// Instanciamos un Random para variar entre los distintos tipos de hechizos
+	private static Random rand = new Random();
 public static Hechizo crearHechizoPorTipo(String tipo) {
         
         // Usamos switch para evaluar el tipo y devolver el objeto correcto
@@ -14,7 +19,13 @@ public static Hechizo crearHechizoPorTipo(String tipo) {
             case "ataque":
                 return new Expelliarmus();
             case "oscuro":
-                return new AvadaKedabra(); // O Confringo
+            {
+            	int type = rand.nextInt(2);
+            	
+            	if(type == 0)
+            		return new Confringo();
+            	return new AvadaKedabra();
+            }
             case "defensa":
                 return new Protego();
             case "curacion":
