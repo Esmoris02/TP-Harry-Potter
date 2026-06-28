@@ -1,8 +1,9 @@
 package modelos;
 
 public class Profesor extends Mago{
-	public Profesor(String nombre, double nivelMagia, double puntosVida) {
-        super(nombre, nivelMagia, puntosVida);
+	public Profesor() {
+		//Nombre, puntos de magia, puntos de vida
+        super("Profesor Experimentado", 80, 120);
     }
 
     // El Profesor es un maestro en magia, así que tiene curacion mejorada

@@ -1,8 +1,9 @@
 package modelos;
 
 public class Comandante extends Mortifago{
-	public Comandante(String nombre, double nivelMagia, double puntosVida) {
-        super(nombre, nivelMagia, puntosVida);
+	public Comandante() {
+		//Nombre, puntos de magia, puntos de vida
+        super("Comandante Oscuro", 110, 160);
     }
 
     // Bonificacion por uso de magia oscura

@@ -1,8 +1,9 @@
 package modelos;
 
 public class Estudiante extends Mago{
-	public Estudiante(String nombre, double nivelMagia, double puntosVida) {
-        super(nombre, nivelMagia, puntosVida);
+	public Estudiante() {
+		//Nombre, puntos de magia, puntos de vida
+        super("Estudiante de Hogwarts", 50, 100);
     }
 
     // El estudiante todavía está aprendiendo, curación es mucho menor que la de un mago nermal

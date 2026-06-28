@@ -1,8 +1,9 @@
 package modelos;
 
 public class Seguidor extends Mortifago{
-	public Seguidor(String nombre, double nivelMagia, double puntosVida) {
-        super(nombre, nivelMagia, puntosVida);
+	public Seguidor() {
+		//Nombre, puntos de magia, puntos de vida
+        super("Seguidor Común", 70, 110);
     }
 
     // Aunque posee afinidad, es un mago de bajo nivel

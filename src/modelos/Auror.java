@@ -1,8 +1,10 @@
 package modelos;
 
 public class Auror extends Mago{
-	public Auror(String nombre, double nivelMagia, double puntosVida) {
-        super(nombre, nivelMagia, puntosVida);
+	
+	public Auror() {
+		//Nombre, puntos de magia, puntos de vida
+        super("Auror de Élite", 100, 150);
     }
 
     // Solo sobrescribimos la defensa porque es el punto fuerte exclusivo del Auror
