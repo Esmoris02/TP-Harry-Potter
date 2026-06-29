@@ -2,8 +2,10 @@ package hechizos;
 
 import modelos.Personaje;
 
-public class AvadaKedabra extends HechizoBase{
-	public AvadaKedabra() {
+public class AvadaKedavra extends HechizoAtaque{
+	
+	
+	public AvadaKedavra() {
 		super("AvadaKedabra", 75);
 	}
 	

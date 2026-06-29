@@ -3,7 +3,7 @@ package hechizos;
 import modelos.Personaje;
 
 //Hace que el objetivo estalle en llamas, causando gran daño destructivo.
-public class Confringo extends HechizoBase{
+public class Confringo extends Hechizo{
 	public Confringo(){
 		super("Confringo", 25);
 	}

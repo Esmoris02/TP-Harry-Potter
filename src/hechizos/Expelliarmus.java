@@ -2,7 +2,7 @@ package hechizos;
 
 import modelos.Personaje;
 
-public class Expelliarmus extends HechizoBase{
+public class Expelliarmus extends Hechizo{
 	public Expelliarmus(){
 		super("Expelliarmus", 10);
 	}

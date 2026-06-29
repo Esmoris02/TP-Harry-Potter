@@ -2,7 +2,7 @@ package fabricas;
 
 import java.util.Random;
 import hechizos.Hechizo;
-import hechizos.AvadaKedabra;
+import hechizos.AvadaKedavra;
 import hechizos.ExpectoPatronum;
 import hechizos.Expelliarmus;
 import hechizos.Protego;
@@ -24,7 +24,7 @@ public static Hechizo crearHechizoPorTipo(String tipo) {
             	
             	if(type == 0)
             		return new Confringo();
-            	return new AvadaKedabra();
+            	return new AvadaKedavra();
             }
             case "defensa":
                 return new Protego();

@@ -2,7 +2,7 @@ package hechizos;
 
 import modelos.Personaje;
 
-public class Protego extends HechizoBase{
+public class Protego extends Hechizo{
 	public Protego(){
 		super("Protego", 25);
 	}

@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.LinkedList;
 import java.util.Set;
+
+import efectos.Efecto;
 import hechizos.Hechizo;
 
 public abstract class Personaje {
@@ -13,6 +15,7 @@ public abstract class Personaje {
 	protected boolean protegido;
     //futura implementación de hechizos 
     public List<Hechizo> hechizosDisponibles = new LinkedList<>();  
+    public List<Efecto> efectosAAplicar = new LinkedList<>();  
     
     public Personaje(String nombre, double nivelMagia, double puntosVida) {
         this.nombre = nombre;
@@ -57,6 +60,15 @@ public abstract class Personaje {
             this.puntosVida = 0; // Evitamos que la vida quede en números negativos
         }
     }
+    
+    protected void recibirEfecto(Efecto efecto) {
+    	this.efectosAAplicar.add(efecto);
+    }
+    
+    protected void aplicarEfectos(List<Efecto> efectoAAplicar) {
+    	
+    }
+    
     public void recibirCuracion(double cantidad) {
         this.puntosVida += cantidad;
     }
