@@ -21,8 +21,8 @@ public class Episkey extends HechizoBase {
 		this.efectoCausado = new EfectoProlongado(new Daño(curacionBaseFinal), new Daño(curacionBaseFinal),
 				duracionEnTurnos, NOMBRE_EFECTO_PROLONGADO);
 
-		objetivo.recibirEfecto(efectoCausado);
-		System.out.println(lanzador.getNombre() + " cura con " + this.getNombre() + " a " + objetivo.getNombre());
+		lanzador.recibirEfecto(efectoCausado);
+		System.out.println(lanzador.getNombre() + " se cura con " + this.getNombre());
 	}
 
 }

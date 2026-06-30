@@ -18,7 +18,7 @@ public class VulneraSanetur extends HechizoBase {
 				* lanzador.obtenerMultiplicadorHechizoOscuro();
 
 		this.efectoCausado = new Curacion(curacionFinal);
-		objetivo.recibirEfecto(efectoCausado);
+		lanzador.recibirEfecto(efectoCausado);
 		System.out.println(lanzador.getNombre() + " se cura con " + this.getNombre());
 	}
 

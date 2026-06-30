@@ -32,7 +32,7 @@ public abstract class Personaje {
 		return nombre;
 	}
 
-	public double getNivelMagia() {
+	public double obtenerNivelMagia() {
 		return nivelMagia;
 	}
 
@@ -44,9 +44,9 @@ public abstract class Personaje {
 		return nivelProteccion;
 	}
 
-	public void gastoMagia(double cantidad) {
-		if(nivelMagia <= cantidad) {
-			this.nivelMagia -= cantidad;			
+	public void gastoNivelMagia(double costo) {
+		if(nivelMagia >= costo) {
+			this.nivelMagia -= costo;			
 		} else {
 			System.out.println("No es posible realizar este hechizo por bajo nivel de magia.");
 		}

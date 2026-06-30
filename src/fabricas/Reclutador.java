@@ -36,9 +36,9 @@ public class Reclutador {
 		// nuevoMago.aprenderHechizo(new ExpectoPatronum());
 		// nuevoMago.aprenderHechizo(new Protego());
 
-		nuevoMago.aprenderHechizo(FabricaHechizos.crearHechizoPorTipo("ataque"));
-		nuevoMago.aprenderHechizo(FabricaHechizos.crearHechizoPorTipo("defensa"));
-		nuevoMago.aprenderHechizo(FabricaHechizos.crearHechizoPorTipo("curacion"));
+//		nuevoMago.aprenderHechizo(FabricaHechizos.crearHechizoPorTipo("ataque"));
+//		nuevoMago.aprenderHechizo(FabricaHechizos.crearHechizoPorTipo("defensa"));
+//		nuevoMago.aprenderHechizo(FabricaHechizos.crearHechizoPorTipo("curacion"));
 
 		return nuevoMago;
 	}
@@ -60,8 +60,8 @@ public class Reclutador {
 		// nuevoMortifago.aprenderHechizo(new AvadaKedabra());
 		// nuevoMortifago.aprenderHechizo(new Confringo());
 		// nuevoMortifago.aprenderHechizo(new Protego());
-		nuevoMortifago.aprenderHechizo(FabricaHechizos.crearHechizoPorTipo("oscuro"));
-		nuevoMortifago.aprenderHechizo(FabricaHechizos.crearHechizoPorTipo("defensa"));
+//		nuevoMortifago.aprenderHechizo(FabricaHechizos.crearHechizoPorTipo("oscuro"));
+//		nuevoMortifago.aprenderHechizo(FabricaHechizos.crearHechizoPorTipo("defensa"));
 
 		return nuevoMortifago;
 	}

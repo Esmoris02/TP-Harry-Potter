@@ -62,23 +62,21 @@ public class Batallon {
 			atacante.aplicarEfectos(atacante.efectosAAplicar);
 			if (!atacante.estaAturtido()) {
 				if (atacante.estaSaludable()) {
-//				objetivo = enemigo.obtenerPersonajeSaludable();
 					objetivo = enemigo.obtenerPersonajeSaludableAleatorio();
 					if (objetivo == null) {
-						break;
+						return;
 					}
 					hechizoAEjecutar = atacante.elegirHechizo(hechizosUsadosEnTurnoActual);
 					if (hechizoAEjecutar != null) {
-						if (atacante.getNivelMagia() < hechizoAEjecutar.getCoste()) {
+						if (atacante.obtenerNivelMagia() < hechizoAEjecutar.getCoste()) {
 							atacante.recuperarMana();
-							System.out.println("Mana insuficiente para atacar, recuperando MP");
+							System.out.println("Nivel de magia insuficiente para ejecutar " + hechizoAEjecutar + ", recuperando nivel de magia");
 						} else {
-							atacante.gastoMagia(hechizoAEjecutar.getCoste());
+							atacante.gastoNivelMagia(hechizoAEjecutar.getCoste());
 							hechizoAEjecutar.ejecutar(atacante, objetivo);
 							hechizosUsadosEnTurnoActual.add(hechizoAEjecutar);
 							historialHechizos.get(atacante).add(hechizoAEjecutar);
 						}
-
 					}
 
 				}
