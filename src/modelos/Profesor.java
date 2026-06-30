@@ -11,5 +11,11 @@ public class Profesor extends Mago{
     public double obtenerMultiplicadorCuracion() {
         return 2.0; 
     }
+    
+    // Recuperacion de nivel de magia estándar
+    @Override
+    public double obtenerTasaRecuperacionMagia() {
+    	return 25;
+    }
 
 }

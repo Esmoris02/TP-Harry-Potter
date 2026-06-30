@@ -3,12 +3,15 @@ package efectos;
 import modelos.Personaje;
 
 public abstract class EfectoDecorador implements Efecto {
-	protected Efecto efecto;
-	
-    public EfectoDecorador(Efecto efecto) {
-        this.efecto = efecto;
+	protected Efecto efectoBase;
+	protected Efecto efectoAdicional;
+
+    public EfectoDecorador(Efecto efectoBase, Efecto efectoAdicional) {
+        this.efectoBase = efectoBase;
+        this.efectoAdicional = efectoAdicional;
     }
 
-    public abstract void aplicar(Personaje p);
+    abstract public void aplicar(Personaje objetivo);
+    abstract public boolean haExpirado();
 
 }

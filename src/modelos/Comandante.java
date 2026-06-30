@@ -8,7 +8,7 @@ public class Comandante extends Mortifago{
 
     // Bonificacion por uso de magia oscura
     @Override
-    public double obtenerMultiplicadorAtaqueOscuro() {
+    public double obtenerMultiplicadorHechizoOscuro() {
         return 1.6; 
     }
 
@@ -23,4 +23,11 @@ public class Comandante extends Mortifago{
     public double obtenerMultiplicadorDefensa() {
         return 1.4;
     }
+    
+    // Recuperacion de nivel de magia estándar
+    @Override
+    public double obtenerTasaRecuperacionMagia() {
+    	return 30;
+    }
+    
 }

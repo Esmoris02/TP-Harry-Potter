@@ -8,7 +8,7 @@ public class Seguidor extends Mortifago{
 
     // Aunque posee afinidad, es un mago de bajo nivel
     @Override
-    public double obtenerMultiplicadorAtaqueOscuro() {
+    public double obtenerMultiplicadorHechizoOscuro() {
         return 0.8; 
     }
 
@@ -22,6 +22,12 @@ public class Seguidor extends Mortifago{
     @Override
     public double obtenerMultiplicadorDefensa() {
         return 0.6;
+    }
+    
+    // Recuperacion de nivel de magia estándar
+    @Override
+    public double obtenerTasaRecuperacionMagia() {
+    	return 25;
     }
 
 }

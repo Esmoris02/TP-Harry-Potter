@@ -1,14 +1,14 @@
 package modelos;
 
 
-public class Mortifago extends Personaje{
+public abstract class Mortifago extends Personaje{
 	public Mortifago(String nombre, double nivelMagia, double puntosVida) {
         super(nombre, nivelMagia, puntosVida);
     }
 
     // Bonificación por uso de magia oscura
     @Override
-    public double obtenerMultiplicadorAtaqueOscuro() {
+    public double obtenerMultiplicadorHechizoOscuro() {
         return 1.8; 
     }
 
@@ -22,6 +22,17 @@ public class Mortifago extends Personaje{
     @Override
     public double obtenerMultiplicadorDefensa() {
         return 0.8;
+    }
+    
+    // Recuperacion de nivel de magia estándar
+    @Override
+    public double obtenerTasaRecuperacionMagia() {
+    	return 20;
+    }
+    
+    @Override
+    public double obtenerProbabilidadImpactoHechizoFatal() {
+    	return 0.75;
     }
 
 }

@@ -1,14 +1,14 @@
 package modelos;
 
 
-public class Mago extends Personaje{
+public abstract class Mago extends Personaje{
 	public Mago(String nombre, double nivelMagia, double puntosVida) {
         super(nombre, nivelMagia, puntosVida);
     }
 
     // Penalizacion por uso de magia oscura
     @Override
-    public double obtenerMultiplicadorAtaqueOscuro() {
+    public double obtenerMultiplicadorHechizoOscuro() {
         return 0.5; 
     }
 
@@ -22,6 +22,17 @@ public class Mago extends Personaje{
     @Override
     public double obtenerMultiplicadorDefensa() {
         return 1.2;
+    }
+    
+    // Recuperacion de nivel de magia estándar
+    @Override
+    public double obtenerTasaRecuperacionMagia() {
+    	return 20;
+    }
+    
+    @Override
+    public double obtenerProbabilidadImpactoHechizoFatal() {
+    	return 0.4;
     }
 
 }

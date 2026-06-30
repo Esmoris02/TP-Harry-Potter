@@ -20,7 +20,7 @@ public class Estudiante extends Mago{
 
     //Si por alguna razón intenta usar magia oscura, el efecto es casi nulo
     @Override
-    public double obtenerMultiplicadorAtaqueOscuro() {
+    public double obtenerMultiplicadorHechizoOscuro() {
         return 0.2; 
     }
 
