@@ -3,11 +3,12 @@ package hechizos;
 import efectos.Aturdimiento;
 import modelos.Personaje;
 
-public class Stupefy extends HechizoBase{
+public class Stupefy extends HechizoBase {
+	private static final String NOMBRE_HECHIZO = "Stupefy";
+	private static final int COSTE_MAGIA = 30;
 
 	public Stupefy() {
-		// Nombre, Coste MP
-		super("Stupefy", 30);
+		super(NOMBRE_HECHIZO, COSTE_MAGIA);
 	}
 
 	@Override

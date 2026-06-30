@@ -4,27 +4,26 @@ import efectos.Daño;
 import efectos.EfectoProlongado;
 import modelos.Personaje;
 
-//Hace que el objetivo estalle en llamas, causando gran daño destructivo.
-public class Confringo extends HechizoBase{
-	protected double dañoBase = 20;
-	protected double dañoAdicional = 10;
+public class Confringo extends HechizoBase {
+	private static final String NOMBRE_EFECTO_PROLONGADO = "Quemadura";
+	private static final int DAÑO_ADICIONAL = 10;
+	private static final int DAÑO_BASE = 20;
+	private static final int COSTE_MAGIA = 27;
+	private static final String CONFRINGO = "Confringo";
 	protected int duracionEnTurnos = 2;
-	protected String nombreEfectoProlongado = "Quemadura";
-	
-	
+
 	public Confringo() {
-		//Nombre, Coste MP
-		super("Confringo", 27);
+		super(CONFRINGO, COSTE_MAGIA);
 	}
-	
+
 	@Override
 	public void ejecutar(Personaje lanzador, Personaje objetivo) {
-		double dañoBaseFinal = dañoBase / objetivo.obtenerMultiplicadorDefensa();
-		this.efectoCausado = new EfectoProlongado(new Daño(dañoBaseFinal), new Daño(dañoAdicional), duracionEnTurnos, nombreEfectoProlongado);
-		
+		double dañoBaseFinal = DAÑO_BASE / objetivo.obtenerMultiplicadorDefensa();
+		this.efectoCausado = new EfectoProlongado(new Daño(dañoBaseFinal), new Daño(DAÑO_ADICIONAL), duracionEnTurnos,
+				NOMBRE_EFECTO_PROLONGADO);
+
 		objetivo.recibirEfecto(efectoCausado);
 		System.out.println(lanzador.getNombre() + " ataca con " + this.getNombre() + " a " + objetivo.getNombre());
 	}
-	
-	
+
 }

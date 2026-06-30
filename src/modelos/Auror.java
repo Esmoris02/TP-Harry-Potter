@@ -1,28 +1,59 @@
 package modelos;
 
+import hechizos.AvadaKedavra;
+import hechizos.Confringo;
+import hechizos.Episkey;
+import hechizos.ExpectoPatronum;
+import hechizos.Expelliarmus;
+import hechizos.PetrificusTotalus;
+import hechizos.Protego;
+
 public class Auror extends Mago{
 	
+	private static final double PROBABILIDAD_IMPACTO_HECHIZO_FATAL = 0.4;
+	private static final int TASA_RECUPERACION_MAGIA = 30;
+	private static final double MULTIPLICADOR_DEFENSA = 1.8;
+	private static final double MULTIPLICADOR_HECHIZO_OSCURO = 0.8;
+	
+	private static final int MAX_NIVEL_VIDA = 150;
+	private static final int MAX_NIVEL_MAGIA = 100;
+
 	public Auror() {
 		//Nombre, puntos de magia, puntos de vida
-        super("Auror de Élite", 100, 150);
-        this.maximoNivelMagia = 100;
-        this.maximoPuntosVida = 150;
+        super("Auror de Élite", MAX_NIVEL_MAGIA, MAX_NIVEL_VIDA);
+        this.maximoNivelMagia = MAX_NIVEL_MAGIA;
+        this.maximoPuntosVida = MAX_NIVEL_VIDA;
+        this.aprenderHechizo(new AvadaKedavra());
+        this.aprenderHechizo(new Expelliarmus());
+        this.aprenderHechizo(new Protego());
+        this.aprenderHechizo(new Confringo());
+        this.aprenderHechizo(new Episkey());
+        this.aprenderHechizo(new PetrificusTotalus());
+        this.aprenderHechizo(new ExpectoPatronum());
     }
 
     // Solo sobrescribimos la defensa porque es el punto fuerte exclusivo del Auror
     @Override
     public double obtenerMultiplicadorDefensa() {
-        return 1.8; 
+        return MULTIPLICADOR_DEFENSA; 
     }
     
     // Recuperacion de nivel de magia estándar
     @Override
     public double obtenerTasaRecuperacionMagia() {
-    	return 30;
+    	return TASA_RECUPERACION_MAGIA;
     }
     
-    public double obtenerProbabilidadImpactoHechizoFatal() {
-    	return 0.4;
+    @Override
+    public double obtenerMultiplicadorHechizoOscuro() {
+        return MULTIPLICADOR_HECHIZO_OSCURO; 
     }
+    
+    @Override
+    public double obtenerProbabilidadImpactoHechizoFatal() {
+		return PROBABILIDAD_IMPACTO_HECHIZO_FATAL;
+    }
+    
+    
 
 }

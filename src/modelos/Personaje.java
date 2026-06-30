@@ -2,6 +2,7 @@ package modelos;
 
 import java.util.List;
 import java.util.Random;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Set;
@@ -17,7 +18,6 @@ public abstract class Personaje {
 	protected double maximoPuntosVida;
 	protected double nivelProteccion;
 	protected boolean aturdido;
-	// futura implementación de hechizos
 	public List<HechizoBase> hechizosDisponibles = new LinkedList<>();
 	public List<Efecto> efectosAAplicar = new LinkedList<>();
 
@@ -25,8 +25,7 @@ public abstract class Personaje {
 		this.nombre = nombre;
 		this.nivelMagia = nivelMagia;
 		this.puntosVida = puntosVida;
-		// futura implementación de hechizos
-		// this.hechizosDisponibles = new ArrayList<>();
+		this.hechizosDisponibles = new ArrayList<>();
 	}
 
 	public String getNombre() {

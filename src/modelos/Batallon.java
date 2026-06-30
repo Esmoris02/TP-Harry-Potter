@@ -34,17 +34,7 @@ public class Batallon {
 		return false;
 	}
 
-	public Personaje obtenerPersonajeSaludable() {
-		for (Personaje personaje : integrantes) {
-			if (personaje.estaSaludable()) {
-				return personaje;
-			}
-		}
-		return null;
-
-	}
-
-	public Personaje obtenerPersonajeSaludableAleatorio() {
+	protected Personaje obtenerPersonajeSaludableAleatorio() {
 		List<Personaje> saludables = new ArrayList<>();
 
 		for (Personaje personaje : integrantes) {

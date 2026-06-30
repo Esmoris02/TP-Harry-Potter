@@ -4,16 +4,17 @@ import efectos.Daño;
 import modelos.Personaje;
 
 public class Expelliarmus extends HechizoBase {
-	protected double dañoBase = 15;
+	private static final String NOMBRE_HECHIZO = "Expelliarmus";
+	private static final int COSTE_MAGIA = 20;
+	private static final int DAÑO_BASE = 15;
 
 	public Expelliarmus() {
-		//Nombre, Coste MP
-		super("Expelliarmus", 20);
+		super(NOMBRE_HECHIZO, COSTE_MAGIA);
 	}
 
 	@Override
 	public void ejecutar(Personaje lanzador, Personaje objetivo) {
-		double dañoFinal = dañoBase / objetivo.obtenerMultiplicadorDefensa();
+		double dañoFinal = DAÑO_BASE / objetivo.obtenerMultiplicadorDefensa();
 		this.efectoCausado = new Daño(dañoFinal);
 		objetivo.recibirEfecto(efectoCausado);
 		System.out.println(lanzador.getNombre() + " ataca con " + this.getNombre() + " a " + objetivo.getNombre());

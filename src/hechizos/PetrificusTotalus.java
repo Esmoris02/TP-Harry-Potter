@@ -4,19 +4,20 @@ import efectos.Aturdimiento;
 import efectos.EfectoProlongado;
 import modelos.Personaje;
 
-public class PetrificusTotalus extends HechizoBase{
-	protected int duracionEnTurnos = 1; 
-	protected String nombreEfectoProlongado = "Parálisis";
-	
-	
+public class PetrificusTotalus extends HechizoBase {
+	private static final String NOMBRE_HECHIZO = "Petrificus Totalus";
+	private static final int COSTE_MAGIA = 45;
+	private static final String NOMBRE_EFECTO_PROLONGADO = "Parálisis";
+	protected int duracionEnTurnos = 1;
+
 	public PetrificusTotalus() {
-		//Nombre, Coste MP
-		super("Petrificus Totalus", 45);
+		super(NOMBRE_HECHIZO, COSTE_MAGIA);
 	}
-	
+
 	@Override
 	public void ejecutar(Personaje lanzador, Personaje objetivo) {
-		this.efectoCausado = new EfectoProlongado(new Aturdimiento(), new Aturdimiento(), duracionEnTurnos, nombreEfectoProlongado);
+		this.efectoCausado = new EfectoProlongado(new Aturdimiento(), new Aturdimiento(), duracionEnTurnos,
+				NOMBRE_EFECTO_PROLONGADO);
 		objetivo.recibirEfecto(efectoCausado);
 		System.out.println(lanzador.getNombre() + " aturde con " + this.getNombre() + " a " + objetivo.getNombre());
 	}

@@ -2,6 +2,12 @@ package modelos;
 
 
 public abstract class Mortifago extends Personaje{
+	private static final double PROBABILIDAD_IMPACTO_HECHIZO_FATAL = 0.75;
+	private static final int TASA_RECUPERACION_MAGIA = 20;
+	private static final double MULTIPLICADOR_DEFENSA = 0.8;
+	private static final double MULTIPLICADOR_CURACION = 0.4;
+	private static final double MULTIPLICADOR_HECHIZO_OSCURO = 1.8;
+
 	public Mortifago(String nombre, double nivelMagia, double puntosVida) {
         super(nombre, nivelMagia, puntosVida);
     }
@@ -9,30 +15,30 @@ public abstract class Mortifago extends Personaje{
     // Bonificación por uso de magia oscura
     @Override
     public double obtenerMultiplicadorHechizoOscuro() {
-        return 1.8; 
+        return MULTIPLICADOR_HECHIZO_OSCURO; 
     }
 
     // PenaliZación por uso de magia de curación
     @Override
     public double obtenerMultiplicadorCuracion() {
-        return 0.4; 
+        return MULTIPLICADOR_CURACION; 
     }
 
     // Defensa estandar disminuida
     @Override
     public double obtenerMultiplicadorDefensa() {
-        return 0.8;
+        return MULTIPLICADOR_DEFENSA;
     }
     
     // Recuperacion de nivel de magia estándar
     @Override
     public double obtenerTasaRecuperacionMagia() {
-    	return 20;
+    	return TASA_RECUPERACION_MAGIA;
     }
     
     @Override
     public double obtenerProbabilidadImpactoHechizoFatal() {
-    	return 0.75;
+		return PROBABILIDAD_IMPACTO_HECHIZO_FATAL;
     }
 
 }

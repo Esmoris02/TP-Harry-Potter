@@ -4,23 +4,25 @@ import efectos.Daño;
 import efectos.EfectoProlongado;
 import modelos.Personaje;
 
-public class Sectumsempra extends HechizoBase{
-	protected double dañoBase = 55;
-	protected double dañoAdicional = 20;
+public class Sectumsempra extends HechizoBase {
+	private static final String NOMBRE_HECHIZO = "Sectumsempra";
+	private static final int COSTE_MAGIA = 50;
+	private static final String NOMBRE_EFECTO_PROLONGADO = "Sangrado";
+	private static final int DAÑO_ADICIONAL = 20;
+	private static final int DAÑO_BASE = 55;
 	protected int duracionEnTurnos = 3;
-	protected String nombreEfectoProlongado = "Sangrado";
-	
-	
+
 	public Sectumsempra() {
-		//Nombre, Coste MP
-		super("Sectumsempra", 50);
+		super(NOMBRE_HECHIZO, COSTE_MAGIA);
 	}
-	
+
 	@Override
 	public void ejecutar(Personaje lanzador, Personaje objetivo) {
-		double dañoBaseFinal = (dañoBase * lanzador.obtenerMultiplicadorHechizoOscuro()) / objetivo.obtenerMultiplicadorDefensa();
-		this.efectoCausado = new EfectoProlongado(new Daño(dañoBaseFinal), new Daño(dañoAdicional), duracionEnTurnos, nombreEfectoProlongado);
-		
+		double dañoBaseFinal = (DAÑO_BASE * lanzador.obtenerMultiplicadorHechizoOscuro())
+				/ objetivo.obtenerMultiplicadorDefensa();
+		this.efectoCausado = new EfectoProlongado(new Daño(dañoBaseFinal), new Daño(DAÑO_ADICIONAL), duracionEnTurnos,
+				NOMBRE_EFECTO_PROLONGADO);
+
 		objetivo.recibirEfecto(efectoCausado);
 		System.out.println(lanzador.getNombre() + " ataca con " + this.getNombre() + " a " + objetivo.getNombre());
 	}
