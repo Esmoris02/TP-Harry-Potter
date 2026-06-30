@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Set;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 
 import efectos.Efecto;
 import hechizos.HechizoBase;
@@ -28,19 +30,23 @@ public abstract class Personaje {
 		this.hechizosDisponibles = new ArrayList<>();
 	}
 
-	public String getNombre() {
+	public String obtenerNombre() {
 		return nombre;
+	}
+	
+	public void modificarNombre(String agregado) {
+		this.nombre = String.format("%s %s", this.nombre, agregado);
 	}
 
 	public double obtenerNivelMagia() {
 		return nivelMagia;
 	}
 
-	public double getPuntosVida() {
+	public double obtenerPuntosVida() {
 		return puntosVida;
 	}
 
-	public double getProtegido() {
+	public double obtenerNivelProteccion() {
 		return nivelProteccion;
 	}
 
@@ -90,7 +96,8 @@ public abstract class Personaje {
 	    } else {
 	        // Sin escudo, daño directo a la vida
 	        this.puntosVida -= cantidad;
-	        System.out.println(this.nombre + " ha perdido " + cantidad + " puntos de vida.");
+	        DecimalFormat df = new DecimalFormat("#.##");
+			System.out.println(this.nombre + " ha perdido " + df.format(cantidad) + " puntos de vida.");
 	        if (this.puntosVida <= 0) {
 	            this.puntosVida = 0;
 	            System.out.println(this.nombre + " ha quedado fuera de combate.");

@@ -10,8 +10,13 @@ public class BatallaMagosVsMortifagos {
 		Batallon batallonMagos = new Batallon();
 		Batallon batallonMortifagos = new Batallon();
 
+		System.out.println("--- BATALLON DE MAGOS COMPUESTO POR: ---");
 		for (int i = 0; i < 3; i++) {
 			batallonMagos.agregarPersonaje(Reclutador.crearMago());
+		}
+		
+		System.out.println("--- BATALLON DE MORTIFAGOS COMPUESTO POR: ---");
+		for (int i = 0; i < 3; i++) {
 			batallonMortifagos.agregarPersonaje(Reclutador.crearMortifago());
 		}
 

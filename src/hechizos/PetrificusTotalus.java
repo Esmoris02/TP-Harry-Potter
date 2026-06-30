@@ -19,6 +19,6 @@ public class PetrificusTotalus extends HechizoBase {
 		this.efectoCausado = new EfectoProlongado(new Aturdimiento(), new Aturdimiento(), duracionEnTurnos,
 				NOMBRE_EFECTO_PROLONGADO);
 		objetivo.recibirEfecto(efectoCausado);
-		System.out.println(lanzador.getNombre() + " aturde con " + this.getNombre() + " a " + objetivo.getNombre());
+		System.out.println(lanzador.obtenerNombre() + " aturde con " + this.getNombre() + " a " + objetivo.obtenerNombre());
 	}
 }

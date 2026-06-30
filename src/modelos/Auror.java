@@ -23,13 +23,6 @@ public class Auror extends Mago{
         super("Auror de Élite", MAX_NIVEL_MAGIA, MAX_NIVEL_VIDA);
         this.maximoNivelMagia = MAX_NIVEL_MAGIA;
         this.maximoPuntosVida = MAX_NIVEL_VIDA;
-        this.aprenderHechizo(new AvadaKedavra());
-        this.aprenderHechizo(new Expelliarmus());
-        this.aprenderHechizo(new Protego());
-        this.aprenderHechizo(new Confringo());
-        this.aprenderHechizo(new Episkey());
-        this.aprenderHechizo(new PetrificusTotalus());
-        this.aprenderHechizo(new ExpectoPatronum());
     }
 
     // Solo sobrescribimos la defensa porque es el punto fuerte exclusivo del Auror

@@ -17,7 +17,7 @@ public class Protego extends HechizoBase {
 		double proteccionFinal = PROTECCION_BASE * lanzador.obtenerMultiplicadorDefensa();
 		this.efectoCausado = new Proteccion(proteccionFinal);
 		lanzador.recibirEfecto(efectoCausado);
-		System.out.println(lanzador.getNombre() + " crea una proteccion con " + this.getNombre());
+		System.out.println(lanzador.obtenerNombre() + " crea una proteccion con " + this.getNombre());
 	}
 
 }

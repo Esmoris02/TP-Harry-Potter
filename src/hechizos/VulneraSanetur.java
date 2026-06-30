@@ -19,7 +19,7 @@ public class VulneraSanetur extends HechizoBase {
 
 		this.efectoCausado = new Curacion(curacionFinal);
 		lanzador.recibirEfecto(efectoCausado);
-		System.out.println(lanzador.getNombre() + " se cura con " + this.getNombre());
+		System.out.println(lanzador.obtenerNombre() + " se cura con " + this.getNombre());
 	}
 
 }

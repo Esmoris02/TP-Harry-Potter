@@ -21,10 +21,10 @@ public class AvadaKedavra extends HechizoBase {
 		if (resultado < lanzador.obtenerProbabilidadImpactoHechizoFatal()) {
 			this.efectoCausado = new Daño(DAÑO_BASE);
 			objetivo.recibirEfecto(efectoCausado);
-			System.out.println(lanzador.getNombre() + " ataca con " + this.getNombre() + " a " + objetivo.getNombre()
+			System.out.println(lanzador.obtenerNombre() + " ataca con " + this.getNombre() + " a " + objetivo.obtenerNombre()
 					+ " y acierta.");
 		} else {
-			System.out.println(lanzador.getNombre() + " ataca con " + this.getNombre() + " a " + objetivo.getNombre()
+			System.out.println(lanzador.obtenerNombre() + " ataca con " + this.getNombre() + " a " + objetivo.obtenerNombre()
 					+ " pero no acierta.");
 		}
 	}

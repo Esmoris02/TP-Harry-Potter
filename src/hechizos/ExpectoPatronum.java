@@ -17,6 +17,6 @@ public class ExpectoPatronum extends HechizoBase {
 		double curacionFinal = CURACION_BASE * lanzador.obtenerMultiplicadorCuracion();
 		this.efectoCausado = new Curacion(curacionFinal);
 		objetivo.recibirEfecto(efectoCausado);
-		System.out.println(lanzador.getNombre() + " se cura con " + this.getNombre());
+		System.out.println(lanzador.obtenerNombre() + " se cura con " + this.getNombre());
 	}
 }

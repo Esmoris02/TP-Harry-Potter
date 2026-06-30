@@ -25,7 +25,7 @@ public class EfectoProlongado extends EfectoDecorador{
 
 		// aplicar efecto prolongado mientras dure en el siguiente turno
 		if (turnosRestantes > 0) {
-			System.out.println(objetivo.getNombre() + " experimenta " + nombreEfectoAdicional);
+			System.out.println(objetivo.obtenerNombre() + " experimenta " + nombreEfectoAdicional);
 			efectoAdicional.aplicar(objetivo);
 			turnosRestantes--;
 		}

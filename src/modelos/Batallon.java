@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.Random;
+import java.util.Scanner;
+
 import hechizos.HechizoBase;
 
 public class Batallon {
@@ -22,7 +24,10 @@ public class Batallon {
 
 	public void agregarPersonaje(Personaje personaje) {
 		this.integrantes.add(personaje);
-		this.historialHechizos.put(personaje, new ArrayList<>());
+	    int indice = integrantes.indexOf(personaje) + 1;
+	    personaje.modificarNombre(String.valueOf(indice));
+	    System.out.println("-" + personaje.obtenerNombre());
+	    this.historialHechizos.put(personaje, new ArrayList<>());
 	}
 
 	public boolean tienePersonajesSaludables() {
@@ -70,7 +75,8 @@ public class Batallon {
 					if (hechizoAEjecutar != null) {
 						if (atacante.obtenerNivelMagia() < hechizoAEjecutar.getCoste()) {
 							atacante.recuperarMana();
-							System.out.println("Nivel de magia insuficiente para ejecutar " + hechizoAEjecutar + ", recuperando nivel de magia");
+							System.out.println("Nivel de magia insuficiente para ejecutar "
+									+ hechizoAEjecutar.getNombre() + ", recuperando nivel de magia");
 						} else {
 							atacante.gastoNivelMagia(hechizoAEjecutar.getCoste());
 							hechizoAEjecutar.ejecutar(atacante, objetivo);
@@ -86,6 +92,16 @@ public class Batallon {
 
 		}
 		System.out.println("-- Fin del Ataque--");
+		Scanner sc = new Scanner(System.in);
+		System.out.println("\nPresione ENTER...");
+		sc.nextLine();
+		limpiarPantalla();
 
+		
+	}
+	
+	public static void limpiarPantalla() {
+	    System.out.print("\033[H\033[2J");
+	    System.out.flush();
 	}
 }

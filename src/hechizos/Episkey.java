@@ -22,7 +22,7 @@ public class Episkey extends HechizoBase {
 				duracionEnTurnos, NOMBRE_EFECTO_PROLONGADO);
 
 		lanzador.recibirEfecto(efectoCausado);
-		System.out.println(lanzador.getNombre() + " se cura con " + this.getNombre());
+		System.out.println(lanzador.obtenerNombre() + " se cura con " + this.getNombre());
 	}
 
 }

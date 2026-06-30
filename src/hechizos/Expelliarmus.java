@@ -17,7 +17,7 @@ public class Expelliarmus extends HechizoBase {
 		double dañoFinal = DAÑO_BASE / objetivo.obtenerMultiplicadorDefensa();
 		this.efectoCausado = new Daño(dañoFinal);
 		objetivo.recibirEfecto(efectoCausado);
-		System.out.println(lanzador.getNombre() + " ataca con " + this.getNombre() + " a " + objetivo.getNombre());
+		System.out.println(lanzador.obtenerNombre() + " ataca con " + this.getNombre() + " a " + objetivo.obtenerNombre());
 	}
 
 }
