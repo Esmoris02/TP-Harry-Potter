@@ -1,12 +1,5 @@
 package modelos;
 
-import hechizos.Confringo;
-import hechizos.Episkey;
-import hechizos.ExpectoPatronum;
-import hechizos.Expelliarmus;
-import hechizos.PetrificusTotalus;
-import hechizos.Protego;
-import hechizos.Stupefy;
 
 public class Profesor extends Mago{
 	private static final int TASA_RECUPERACION_MAGIA = 25;
@@ -19,13 +12,6 @@ public class Profesor extends Mago{
         super("Profesor Experimentado", MAX_NIVEL_MAGIA, MAX_PUNTOS_VIDA);
         this.maximoNivelMagia = MAX_NIVEL_MAGIA;
         this.maximoPuntosVida = MAX_PUNTOS_VIDA;
-        this.aprenderHechizo(new Expelliarmus());
-		this.aprenderHechizo(new Protego());
-		this.aprenderHechizo(new Stupefy());
-        this.aprenderHechizo(new Confringo());
-        this.aprenderHechizo(new Episkey());
-        this.aprenderHechizo(new PetrificusTotalus());
-        this.aprenderHechizo(new ExpectoPatronum());
     }
 
     // El Profesor es un maestro en magia, así que tiene curacion mejorada

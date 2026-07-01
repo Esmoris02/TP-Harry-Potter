@@ -7,8 +7,6 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Set;
 import java.text.DecimalFormat;
-import java.text.NumberFormat;
-
 import efectos.Efecto;
 import hechizos.HechizoBase;
 
@@ -33,7 +31,7 @@ public abstract class Personaje {
 	public String obtenerNombre() {
 		return nombre;
 	}
-	
+
 	public void modificarNombre(String agregado) {
 		this.nombre = String.format("%s %s", this.nombre, agregado);
 	}
@@ -51,8 +49,8 @@ public abstract class Personaje {
 	}
 
 	public void gastoNivelMagia(double costo) {
-		if(nivelMagia >= costo) {
-			this.nivelMagia -= costo;			
+		if (nivelMagia >= costo) {
+			this.nivelMagia -= costo;
 		} else {
 			System.out.println("No es posible realizar este hechizo por bajo nivel de magia.");
 		}
@@ -62,11 +60,11 @@ public abstract class Personaje {
 		this.efectosAAplicar.add(efecto);
 	}
 
-	protected void aplicarEfectos(List<Efecto> efectoAAplicar) {
+	public void aplicarEfectos(List<Efecto> efectoAAplicar) {
 		if (efectosAAplicar == null || efectosAAplicar.isEmpty()) {
-	        return; // no hay efectos que aplicar
-	    }
-		
+			return; // no hay efectos que aplicar
+		}
+
 		Iterator<Efecto> it = efectosAAplicar.iterator();
 		while (it.hasNext()) {
 			Efecto efecto = it.next();
@@ -80,51 +78,52 @@ public abstract class Personaje {
 	}
 
 	public void reducirVida(double cantidad) {
+		DecimalFormat df = new DecimalFormat("#.##");
 		if (this.nivelProteccion > 0) {
-	        double exceso = cantidad - this.nivelProteccion;
-	        if (exceso > 0) {
-	            // El escudo absorbe lo que puede y se rompe
-	            System.out.println("Se ha roto el escudo de " + this.nombre);
-	            this.nivelProteccion = 0;
-	            this.puntosVida -= exceso;
-	            System.out.println(this.nombre + " recibió " + exceso + " puntos de daño tras romperse el escudo.");
-	        } else {
-	            // El escudo absorbe todo el daño
-	            this.nivelProteccion -= cantidad;
-	            System.out.println(this.nombre + " evitó el daño con su escudo.");
-	        }
-	    } else {
-	        // Sin escudo, daño directo a la vida
-	        this.puntosVida -= cantidad;
-	        DecimalFormat df = new DecimalFormat("#.##");
+			double exceso = cantidad - this.nivelProteccion;
+			if (exceso > 0) {
+				// El escudo absorbe lo que puede y se rompe
+				System.out.println("Se ha roto el escudo de " + this.nombre);
+				this.nivelProteccion = 0;
+				this.puntosVida -= exceso;
+				System.out.println(
+						this.nombre + " recibió " + df.format(exceso) + " puntos de daño tras romperse el escudo.");
+			} else {
+				// El escudo absorbe todo el daño
+				this.nivelProteccion -= cantidad;
+				System.out.println(this.nombre + " evitó el daño con su escudo.");
+			}
+		} else {
+			// Sin escudo, daño directo a la vida
+			this.puntosVida -= cantidad;
 			System.out.println(this.nombre + " ha perdido " + df.format(cantidad) + " puntos de vida.");
-	        if (this.puntosVida <= 0) {
-	            this.puntosVida = 0;
-	            System.out.println(this.nombre + " ha quedado fuera de combate.");
-	        }
-	    }
+			if (this.puntosVida <= 0) {
+				this.puntosVida = 0;
+				System.out.println(this.nombre + " ha quedado fuera de combate.");
+			}
+		}
 	}
-	
+
 	public void aumentarVida(double cantidad) {
-		if(cantidad + puntosVida >= maximoPuntosVida) {
+		if (cantidad + puntosVida >= maximoPuntosVida) {
 			puntosVida = maximoPuntosVida;
 		} else {
 			puntosVida += cantidad;
 		}
 	}
-	
+
 	public void aplicarProteccion(double resistencia) {
 		nivelProteccion = resistencia;
 	}
-	
+
 	public void aplicarAturdimiento() {
 		aturdido = true;
 	}
-	
+
 	public void sacarAturdimiento() {
 		aturdido = false;
 	}
-	
+
 	public boolean estaAturtido() {
 		return aturdido;
 	}
@@ -154,25 +153,17 @@ public abstract class Personaje {
 	}
 
 	public void recuperarMana() {
-		if(nivelMagia + this.obtenerTasaRecuperacionMagia() >= maximoNivelMagia) {
+		if (nivelMagia + this.obtenerTasaRecuperacionMagia() >= maximoNivelMagia) {
 			nivelMagia = maximoNivelMagia;
 		} else {
-			nivelMagia += this.obtenerTasaRecuperacionMagia();			
+			nivelMagia += this.obtenerTasaRecuperacionMagia();
 		}
 	}
-
-	/*
-	 * public void lanzarHechizo(Hechizo nombreHechizo, Personaje objetivo) {
-	 * for(Hechizo h : hechizosDisponibles) {
-	 * if(h.getClass().getSimpleName().equals(nombreHechizo)) {//Devuelve el objeto
-	 * real dentro de la lista y compara con el nombre de hechizo solicitado.
-	 * h.ejecutar(this, objetivo); //Si encuentra ejecuta return; } throw new
-	 * IllegalArgumentException("No conoce el hechizo"); } }
-	 */
 
 	public abstract double obtenerMultiplicadorHechizoOscuro();
 
 	public abstract double obtenerMultiplicadorCuracion();
+
 	public abstract double obtenerTasaRecuperacionMagia();
 
 	public abstract double obtenerMultiplicadorDefensa();

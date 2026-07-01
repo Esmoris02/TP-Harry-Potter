@@ -1,12 +1,5 @@
 package modelos;
 
-import hechizos.AvadaKedavra;
-import hechizos.Crucio;
-import hechizos.Protego;
-import hechizos.Sectumsempra;
-import hechizos.Stupefy;
-import hechizos.VulneraSanetur;
-
 public class Comandante extends Mortifago{
 	private static final int TASA_RECUPERACION_MAGIA = 30;
 	private static final double MULTIPLICADOR_DEFENSA = 1.4;
@@ -20,12 +13,6 @@ public class Comandante extends Mortifago{
         super("Comandante Oscuro", MAX_NIVEL_MAGIA, MAX_PUNTOS_VIDA);
         this.maximoNivelMagia = MAX_NIVEL_MAGIA;
         this.maximoPuntosVida = MAX_PUNTOS_VIDA;
-        this.aprenderHechizo(new Sectumsempra());
-        this.aprenderHechizo(new VulneraSanetur());
-        this.aprenderHechizo(new Crucio());
-        this.aprenderHechizo(new AvadaKedavra());
-        this.aprenderHechizo(new Protego());
-        this.aprenderHechizo(new Stupefy());
         
     }
 

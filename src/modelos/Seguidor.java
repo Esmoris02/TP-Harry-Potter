@@ -1,10 +1,5 @@
 package modelos;
 
-import hechizos.Crucio;
-import hechizos.Expelliarmus;
-import hechizos.Protego;
-import hechizos.Stupefy;
-
 public class Seguidor extends Mortifago{
 	private static final int TASA_RECUPERACION_MAGIA = 25;
 	private static final double MULTIPLICADOR_DEFENSA = 0.6;
@@ -18,10 +13,6 @@ public class Seguidor extends Mortifago{
         super("Seguidor Común", MAX_NIVEL_MAGIA, MAX_PUNTOS_VIDA);
         this.maximoNivelMagia = MAX_NIVEL_MAGIA;
         this.maximoPuntosVida = MAX_PUNTOS_VIDA;
-        this.aprenderHechizo(new Crucio());
-        this.aprenderHechizo(new Expelliarmus());
-        this.aprenderHechizo(new Protego());
-        this.aprenderHechizo(new Stupefy());
     }
 
     // Aunque posee afinidad, es un mago de bajo nivel

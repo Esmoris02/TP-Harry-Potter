@@ -11,6 +11,7 @@ import hechizos.Sectumsempra;
 import hechizos.Stupefy;
 import hechizos.VulneraSanetur;
 import hechizos.Confringo;
+import hechizos.Crucio;
 import hechizos.Episkey;
 
 public class FabricaHechizos {
@@ -21,17 +22,15 @@ public class FabricaHechizos {
 		// Usamos switch para evaluar el tipo y devolver el objeto correcto
 		switch (tipo.toLowerCase()) {
 		case "ataque": {
-			int type = rand.nextInt(3);
+			int type = rand.nextInt(2);
 			if (type == 0)
-				return new Stupefy();
-			if (type == 1)
-				return new PetrificusTotalus();
+				return new Confringo();
 			return new Expelliarmus();
 		}
 		case "oscuro": {
 			int type = rand.nextInt(3);
 			if (type == 0)
-				return new Confringo();
+				return new Crucio();
 			if (type == 1)
 				return new Sectumsempra();
 			return new AvadaKedavra();
@@ -46,6 +45,12 @@ public class FabricaHechizos {
 			if (type == 1)
 				return new Episkey();
 			return new ExpectoPatronum();
+		}
+		case "especial": {
+			int type = rand.nextInt(2);
+			if (type == 0)
+				return new Stupefy();
+			return new PetrificusTotalus();
 		}
 		default:
 			throw new IllegalArgumentException("Tipo de hechizo no reconocido: " + tipo);

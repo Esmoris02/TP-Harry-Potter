@@ -33,6 +33,7 @@ public class Reclutador {
 		nuevoMago.aprenderHechizo(FabricaHechizos.crearHechizoPorTipo("defensa"));
 		nuevoMago.aprenderHechizo(FabricaHechizos.crearHechizoPorTipo("curacion"));
 		nuevoMago.aprenderHechizo(FabricaHechizos.crearHechizoPorTipo("oscuro"));
+		nuevoMago.aprenderHechizo(FabricaHechizos.crearHechizoPorTipo("especial"));
 		return nuevoMago;
 	}
 
@@ -51,6 +52,7 @@ public class Reclutador {
 		nuevoMortifago.aprenderHechizo(FabricaHechizos.crearHechizoPorTipo("oscuro"));
 		nuevoMortifago.aprenderHechizo(FabricaHechizos.crearHechizoPorTipo("defensa"));
 		nuevoMortifago.aprenderHechizo(FabricaHechizos.crearHechizoPorTipo("curacion"));
+		nuevoMortifago.aprenderHechizo(FabricaHechizos.crearHechizoPorTipo("especial"));
 		return nuevoMortifago;
 	}
 }

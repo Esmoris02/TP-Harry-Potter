@@ -10,12 +10,12 @@ public class BatallaMagosVsMortifagos {
 		Batallon batallonMagos = new Batallon();
 		Batallon batallonMortifagos = new Batallon();
 
-		System.out.println("--- BATALLON DE MAGOS COMPUESTO POR: ---");
+		System.out.println("\n--- BATALLON DE MAGOS COMPUESTO POR: ---\n");
 		for (int i = 0; i < 3; i++) {
 			batallonMagos.agregarPersonaje(Reclutador.crearMago());
 		}
 		
-		System.out.println("--- BATALLON DE MORTIFAGOS COMPUESTO POR: ---");
+		System.out.println("\n--- BATALLON DE MORTIFAGOS COMPUESTO POR: ---\n");
 		for (int i = 0; i < 3; i++) {
 			batallonMortifagos.agregarPersonaje(Reclutador.crearMortifago());
 		}
@@ -23,7 +23,7 @@ public class BatallaMagosVsMortifagos {
 		Random rand = new Random();
 		while (batallonMagos.tienePersonajesSaludables() && batallonMortifagos.tienePersonajesSaludables()) {
 			if (rand.nextBoolean()) {
-				System.out.println("---- BATALLON DE MAGOS ----");
+				System.out.println("\n---- BATALLON DE MAGOS ----\n");
 				batallonMagos.atacar(batallonMortifagos);
 				if (batallonMortifagos.tienePersonajesSaludables()) {
 					batallonMortifagos.atacar(batallonMagos);
@@ -36,7 +36,7 @@ public class BatallaMagosVsMortifagos {
 				}
 			}
 
-			System.out.println("----------------------------");
+			System.out.println("\n----------------------------\n");
 		}
 
 		if (batallonMagos.tienePersonajesSaludables()) {

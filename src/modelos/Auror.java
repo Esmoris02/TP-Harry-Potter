@@ -1,13 +1,5 @@
 package modelos;
 
-import hechizos.AvadaKedavra;
-import hechizos.Confringo;
-import hechizos.Episkey;
-import hechizos.ExpectoPatronum;
-import hechizos.Expelliarmus;
-import hechizos.PetrificusTotalus;
-import hechizos.Protego;
-
 public class Auror extends Mago{
 	
 	private static final double PROBABILIDAD_IMPACTO_HECHIZO_FATAL = 0.4;
