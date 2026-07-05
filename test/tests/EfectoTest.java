@@ -9,6 +9,7 @@ import efectos.Curacion;
 import efectos.Daño;
 import efectos.Proteccion;
 import modelos.Auror;
+import efectos.EfectoProlongado;
 
 class EfectoTest {
 	
@@ -53,6 +54,24 @@ class EfectoTest {
         Auror auror = new Auror();
         new Proteccion(50).aplicar(auror);
         assertEquals(50, auror.obtenerNivelProteccion(),0.01);
+    }
+    
+    @Test
+    public void testEfectoProlongado() {
+    	
+    	Auror auror = new Auror();
+    	EfectoProlongado efecto = new EfectoProlongado(new Daño(10), new Daño(5), 2,"Quemadura");
+
+    	assertFalse(efecto.haExpirado());
+
+    	efecto.aplicar(auror);
+    	assertFalse(efecto.haExpirado());
+
+    	efecto.aplicar(auror);
+    	assertFalse(efecto.haExpirado());
+
+    	efecto.aplicar(auror);
+    	assertTrue(efecto.haExpirado());
     }
 
 }
