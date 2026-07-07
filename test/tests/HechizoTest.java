@@ -19,7 +19,7 @@ class HechizoTest {
 		auror.reducirVida(50);
 		double antes = auror.obtenerPuntosVida();
 		new ExpectoPatronum().ejecutar(auror, auror);
-		auror.aplicarEfectos(auror.efectosAAplicar);
+		auror.aplicarEfectos(auror.getEfectosAAplicar());
 		assertTrue(auror.obtenerPuntosVida() > antes);
 	}
 
@@ -30,7 +30,7 @@ class HechizoTest {
 		Comandante enemigo = new Comandante();
 		double vidaInicial = enemigo.obtenerPuntosVida();
 		new Expelliarmus().ejecutar(auror, enemigo);
-		enemigo.aplicarEfectos(enemigo.efectosAAplicar);
+		enemigo.aplicarEfectos(enemigo.getEfectosAAplicar());
 		assertTrue(enemigo.obtenerPuntosVida() < vidaInicial);
 	}
 
@@ -38,7 +38,7 @@ class HechizoTest {
 	public void protegoGeneraEscudo() {
 		Auror auror = new Auror();
 		new Protego().ejecutar(auror, auror);
-		auror.aplicarEfectos(auror.efectosAAplicar);
+		auror.aplicarEfectos(auror.getEfectosAAplicar());
 		assertTrue(auror.obtenerNivelProteccion() > 0);
 	}
 

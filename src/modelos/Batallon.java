@@ -64,8 +64,8 @@ public class Batallon {
 		limpiarPantalla();
 	}
 
-	public void procesarTurnoDe(Personaje atacante, Batallon enemigo) {
-		atacante.aplicarEfectos(atacante.efectosAAplicar);
+	private void procesarTurnoDe(Personaje atacante, Batallon enemigo) {
+		atacante.aplicarEfectos(atacante.getEfectosAAplicar());
 
 		if (atacante.estaAturtido()) {
 			atacante.sacarAturdimiento();
@@ -102,7 +102,7 @@ public class Batallon {
 		return integrantes;
 	}
 
-	public static void limpiarPantalla() {
+	private static void limpiarPantalla() {
 		System.out.print("\033[H\033[2J");
 		System.out.flush();
 	}

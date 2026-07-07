@@ -52,15 +52,15 @@ public abstract class Personaje {
 	}
 
 	public void recibirEfecto(Efecto efecto) {
-		this.efectosAAplicar.add(efecto);
+		this.getEfectosAAplicar().add(efecto);
 	}
 
 	public void aplicarEfectos(List<Efecto> efectoAAplicar) {
-		if (efectosAAplicar == null || efectosAAplicar.isEmpty()) {
+		if (getEfectosAAplicar() == null || getEfectosAAplicar().isEmpty()) {
 			return; // no hay efectos que aplicar
 		}
 
-		Iterator<Efecto> it = efectosAAplicar.iterator();
+		Iterator<Efecto> it = getEfectosAAplicar().iterator();
 		while (it.hasNext() && estaSaludable()) {
 			Efecto efecto = it.next();
 			efecto.aplicar(this);
@@ -175,7 +175,7 @@ public abstract class Personaje {
 			sb.append(" MP");
 
 			// Filtrar efectos activos
-			List<Efecto> activos = efectosAAplicar.stream().filter(e -> !e.haExpirado()).toList();
+			List<Efecto> activos = getEfectosAAplicar().stream().filter(e -> !e.haExpirado()).toList();
 
 			// Mostrar solo si hay efectos activos
 			if (!activos.isEmpty()) {
@@ -205,5 +205,9 @@ public abstract class Personaje {
 	public abstract double obtenerMultiplicadorDefensa();
 
 	public abstract double obtenerProbabilidadImpactoHechizoFatal();
+
+	public List<Efecto> getEfectosAAplicar() {
+		return efectosAAplicar;
+	}
 
 }
