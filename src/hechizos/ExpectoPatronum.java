@@ -5,11 +5,11 @@ import modelos.Personaje;
 
 public class ExpectoPatronum extends HechizoBase {
 	private static final String NOMBRE_HECHIZO = "Expecto Patronum";
-	private static final int COSTE_MAGIA = 20;
+	private static final int COSTE_MAGIA = 10;
 	private static final int CURACION_BASE = 30;
 
 	public ExpectoPatronum() {
-		super(NOMBRE_HECHIZO, COSTE_MAGIA);
+		super(NOMBRE_HECHIZO, COSTE_MAGIA, TipoHechizo.CURACION);
 	}
 
 	@Override
@@ -17,6 +17,6 @@ public class ExpectoPatronum extends HechizoBase {
 		double curacionFinal = CURACION_BASE * lanzador.obtenerMultiplicadorCuracion();
 		this.efectoCausado = new Curacion(curacionFinal);
 		objetivo.recibirEfecto(efectoCausado);
-		System.out.println(lanzador.obtenerNombre() + " se cura con " + this.getNombre());
+		System.out.println(lanzador.obtenerNombre() + " se cura con " + this.obtenerNombre());
 	}
 }

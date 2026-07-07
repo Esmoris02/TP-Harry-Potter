@@ -5,7 +5,9 @@ import modelos.Personaje;
 public interface Hechizo {
 	public void ejecutar(Personaje lanzador, Personaje objetivo);
 
-	public String getNombre();
+	public String obtenerNombre();
 
-	public double getCoste();
+	public double obtenerCoste();
+
+	public TipoHechizo obtenerTipo();
 }

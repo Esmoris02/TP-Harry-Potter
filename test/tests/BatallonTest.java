@@ -11,34 +11,36 @@ import modelos.Personaje;
 class BatallonTest {
 
 	private Batallon batallon = new Batallon();
-    private Batallon enemigo = new Batallon();
+	private Batallon enemigo = new Batallon();
 
-    @Test
-    public void unBatallonVacioNoTienePersonajesSaludables() {
-        assertFalse(batallon.tienePersonajesSaludables());
-    }
+	// Apretar ENTER para finalizar los tests
 
-    @Test
-    public void agregarPersonajeHaceQueElBatallonTengaPersonajesSaludables() {
-        batallon.agregarPersonaje(Reclutador.crearMago());
-        assertTrue(batallon.tienePersonajesSaludables());
-    }
+	@Test
+	public void unBatallonVacioNoTienePersonajesSaludables() {
+		assertFalse(batallon.tienePersonajesSaludables());
+	}
 
-    @Test
-    public void atacarABatallonVacioNoProduceErrores() {
+	@Test
+	public void agregarPersonajeHaceQueElBatallonTengaPersonajesSaludables() {
+		batallon.agregarPersonaje(Reclutador.crearMago("Harry Potter"));
+		assertTrue(batallon.tienePersonajesSaludables());
+	}
 
-        batallon.agregarPersonaje(Reclutador.crearMago());
-        batallon.atacar(enemigo);
-        assertTrue(true);
-    }
+	@Test
+	public void atacarABatallonVacioNoProduceErrores() {
 
-    @Test
-    public void unPersonajeMuertoNoCuentaComoSaludable() {
+		batallon.agregarPersonaje(Reclutador.crearMago("Harry Potter"));
+		batallon.atacar(enemigo);
+		assertTrue(true);
+	}
 
-        Personaje p = Reclutador.crearMago();
-        p.reducirVida(10000);
-        batallon.agregarPersonaje(p);
-        assertFalse(batallon.tienePersonajesSaludables());
-    }
+	@Test
+	public void unPersonajeMuertoNoCuentaComoSaludable() {
+
+		Personaje p = Reclutador.crearMago("Harry Potter");
+		p.reducirVida(10000);
+		batallon.agregarPersonaje(p);
+		assertFalse(batallon.tienePersonajesSaludables());
+	}
 
 }

@@ -5,11 +5,11 @@ import modelos.Personaje;
 
 public class Crucio extends HechizoBase {
 	private static final int DAÑO_BASE = 18;
-	private static final int COSTE_MAGIA = 20;
+	private static final int COSTE_MAGIA = 10;
 	private static final String NOMBRE_HECHIZO = "Crucio";
 
 	public Crucio() {
-		super(NOMBRE_HECHIZO, COSTE_MAGIA);
+		super(NOMBRE_HECHIZO, COSTE_MAGIA, TipoHechizo.OSCURO);
 	}
 
 	@Override
@@ -18,6 +18,7 @@ public class Crucio extends HechizoBase {
 				/ objetivo.obtenerMultiplicadorDefensa();
 		this.efectoCausado = new Daño(dañoFinal);
 		objetivo.recibirEfecto(efectoCausado);
-		System.out.println(lanzador.obtenerNombre() + " ataca con " + this.getNombre() + " a " + objetivo.obtenerNombre());
+		System.out.println(
+				lanzador.obtenerNombre() + " ataca con " + this.obtenerNombre() + " a " + objetivo.obtenerNombre());
 	}
 }

@@ -24,10 +24,7 @@ public class Batallon {
 
 	public void agregarPersonaje(Personaje personaje) {
 		this.integrantes.add(personaje);
-	    int indice = integrantes.indexOf(personaje) + 1;
-	    personaje.modificarNombre(String.valueOf(indice));
-	    System.out.println("-" + personaje.obtenerNombre());
-	    this.historialHechizos.put(personaje, new ArrayList<>());
+		this.historialHechizos.put(personaje, new ArrayList<>());
 	}
 
 	public boolean tienePersonajesSaludables() {
@@ -59,49 +56,60 @@ public class Batallon {
 	}
 
 	public void atacar(Batallon enemigo) {
-		HechizoBase hechizoAEjecutar;
-		Personaje objetivo;
 		hechizosUsadosEnTurnoActual.clear();
-		System.out.println("-- Inicio del Ataque --");
 		for (Personaje atacante : integrantes) {
-			atacante.aplicarEfectos(atacante.efectosAAplicar);
-			if (!atacante.estaAturtido()) {
-				if (atacante.estaSaludable()) {
-					objetivo = enemigo.obtenerPersonajeSaludableAleatorio();
-					if (objetivo == null) {
-						return;
-					}
-					hechizoAEjecutar = atacante.elegirHechizo(hechizosUsadosEnTurnoActual);
-					if (hechizoAEjecutar != null) {
-						if (atacante.obtenerNivelMagia() < hechizoAEjecutar.getCoste()) {
-							atacante.recuperarMana();
-							System.out.println("Nivel de magia insuficiente para ejecutar "
-									+ hechizoAEjecutar.getNombre() + ", recuperando nivel de magia");
-						} else {
-							atacante.gastoNivelMagia(hechizoAEjecutar.getCoste());
-							hechizoAEjecutar.ejecutar(atacante, objetivo);
-							hechizosUsadosEnTurnoActual.add(hechizoAEjecutar);
-							historialHechizos.get(atacante).add(hechizoAEjecutar);
-						}
-					}
-
-				}
-			} else {
-				atacante.sacarAturdimiento();
-			}
-
+			procesarTurnoDe(atacante, enemigo);
 		}
-		System.out.println("-- Fin del Ataque--");
-		Scanner sc = new Scanner(System.in);
-		System.out.println("\nPresione ENTER...");
-		sc.nextLine();
+		esperarEnter();
 		limpiarPantalla();
-
-		
 	}
-	
+
+	public void procesarTurnoDe(Personaje atacante, Batallon enemigo) {
+		atacante.aplicarEfectos(atacante.efectosAAplicar);
+
+		if (atacante.estaAturtido()) {
+			atacante.sacarAturdimiento();
+			return;
+		}
+
+		if (!atacante.estaSaludable())
+			return;
+
+		Personaje objetivo = enemigo.obtenerPersonajeSaludableAleatorio();
+		if (objetivo == null)
+			return;
+
+		HechizoBase hechizo = atacante.elegirHechizo(hechizosUsadosEnTurnoActual);
+		if (hechizo == null) {
+			System.out.println(atacante.obtenerNombre()
+					+ "no puede repetir el mismo hechizo en el turno del batallon, así que no lanza nada");
+			return;
+		}
+
+		if (atacante.obtenerNivelMagia() < hechizo.obtenerCoste()) {
+			atacante.recuperarMagia();
+			System.out.println(atacante.obtenerNombre() + "no tiene magia insuficiente para ejecutar "
+					+ hechizo.obtenerNombre() + ", así que recupera nivel de magia.");
+		} else {
+			atacante.gastoPuntosMagia(hechizo.obtenerCoste());
+			hechizo.ejecutar(atacante, objetivo);
+			hechizosUsadosEnTurnoActual.add(hechizo);
+			historialHechizos.get(atacante).add(hechizo);
+		}
+	}
+
+	public List<Personaje> obtenerIntegrantes() {
+		return integrantes;
+	}
+
 	public static void limpiarPantalla() {
-	    System.out.print("\033[H\033[2J");
-	    System.out.flush();
+		System.out.print("\033[H\033[2J");
+		System.out.flush();
+	}
+
+	private void esperarEnter() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("\nPresione ENTER para continuar...");
+		sc.nextLine();
 	}
 }

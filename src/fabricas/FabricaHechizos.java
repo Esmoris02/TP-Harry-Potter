@@ -9,6 +9,7 @@ import hechizos.Expelliarmus;
 import hechizos.Protego;
 import hechizos.Sectumsempra;
 import hechizos.Stupefy;
+import hechizos.TipoHechizo;
 import hechizos.VulneraSanetur;
 import hechizos.Confringo;
 import hechizos.Crucio;
@@ -18,16 +19,16 @@ public class FabricaHechizos {
 	// Instanciamos un Random para variar entre los distintos tipos de hechizos
 	private static Random rand = new Random();
 
-	public static HechizoBase crearHechizoPorTipo(String tipo) {
-		// Usamos switch para evaluar el tipo y devolver el objeto correcto
-		switch (tipo.toLowerCase()) {
-		case "ataque": {
+	public static HechizoBase crearHechizoPorTipo(TipoHechizo tipo) {
+		// Usamos switch para evaluar el tipo y devolver el hechizo correcto
+		switch (tipo) {
+		case ATAQUE: {
 			int type = rand.nextInt(2);
 			if (type == 0)
 				return new Confringo();
 			return new Expelliarmus();
 		}
-		case "oscuro": {
+		case OSCURO: {
 			int type = rand.nextInt(3);
 			if (type == 0)
 				return new Crucio();
@@ -35,10 +36,10 @@ public class FabricaHechizos {
 				return new Sectumsempra();
 			return new AvadaKedavra();
 		}
-		case "defensa": {
+		case DEFENSA: {
 			return new Protego();
 		}
-		case "curacion": {
+		case CURACION: {
 			int type = rand.nextInt(3);
 			if (type == 0)
 				return new VulneraSanetur();
@@ -46,7 +47,7 @@ public class FabricaHechizos {
 				return new Episkey();
 			return new ExpectoPatronum();
 		}
-		case "especial": {
+		case ESPECIAL: {
 			int type = rand.nextInt(2);
 			if (type == 0)
 				return new Stupefy();

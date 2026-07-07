@@ -2,7 +2,7 @@ package efectos;
 
 import modelos.Personaje;
 
-public class Curacion implements Efecto{
+public class Curacion implements Efecto {
 	private double cantidad;
 
 	public Curacion(double cantidad) {

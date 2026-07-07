@@ -5,11 +5,11 @@ import modelos.Personaje;
 
 public class VulneraSanetur extends HechizoBase {
 	private static final String NOMBRE_HECHIZO = "Vulnera Sanetur";
-	private static final int COSTE_MAGIA = 45;
+	private static final int COSTE_MAGIA = 35;
 	private static final int CURACION_BASE = 60;
 
 	public VulneraSanetur() {
-		super(NOMBRE_HECHIZO, COSTE_MAGIA);
+		super(NOMBRE_HECHIZO, COSTE_MAGIA, TipoHechizo.CURACION);
 	}
 
 	@Override
@@ -19,7 +19,7 @@ public class VulneraSanetur extends HechizoBase {
 
 		this.efectoCausado = new Curacion(curacionFinal);
 		lanzador.recibirEfecto(efectoCausado);
-		System.out.println(lanzador.obtenerNombre() + " se cura con " + this.getNombre());
+		System.out.println(lanzador.obtenerNombre() + " se cura con " + this.obtenerNombre());
 	}
 
 }

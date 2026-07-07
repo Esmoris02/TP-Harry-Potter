@@ -5,11 +5,11 @@ import modelos.Personaje;
 
 public class Protego extends HechizoBase {
 	private static final String NOMBRE_HECHIZO = "Protego";
-	private static final int COSTE_MAGIA = 25;
+	private static final int COSTE_MAGIA = 15;
 	private static final int PROTECCION_BASE = 50;
 
 	public Protego() {
-		super(NOMBRE_HECHIZO, COSTE_MAGIA);
+		super(NOMBRE_HECHIZO, COSTE_MAGIA, TipoHechizo.DEFENSA);
 	}
 
 	@Override
@@ -17,7 +17,7 @@ public class Protego extends HechizoBase {
 		double proteccionFinal = PROTECCION_BASE * lanzador.obtenerMultiplicadorDefensa();
 		this.efectoCausado = new Proteccion(proteccionFinal);
 		lanzador.recibirEfecto(efectoCausado);
-		System.out.println(lanzador.obtenerNombre() + " crea una proteccion con " + this.getNombre());
+		System.out.println(lanzador.obtenerNombre() + " crea una proteccion con " + this.obtenerNombre());
 	}
 
 }

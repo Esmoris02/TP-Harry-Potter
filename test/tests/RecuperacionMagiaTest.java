@@ -12,9 +12,9 @@ class RecuperacionMagiaTest {
 	public void recuperarMagiaIncrementaElNivel() {
 
 		Auror auror = new Auror();
-		auror.gastoNivelMagia(80);
+		auror.gastoPuntosMagia(80);
 		double antes = auror.obtenerNivelMagia();
-		auror.recuperarMana();
+		auror.recuperarMagia();
 		assertTrue(auror.obtenerNivelMagia() > antes);
 	}
 
@@ -22,7 +22,7 @@ class RecuperacionMagiaTest {
 	public void recuperarMagiaNoSuperaElMaximo() {
 
 		Auror auror = new Auror();
-		auror.recuperarMana();
+		auror.recuperarMagia();
 		assertEquals(100, auror.obtenerNivelMagia(), 0.01);
 	}
 }

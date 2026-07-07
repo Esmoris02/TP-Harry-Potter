@@ -7,6 +7,12 @@ public class Estudiante extends Mago {
 	private static final int MAX_PUNTOS_VIDA = 100;
 	private static final int MAX_NIVEL_MAGIA = 50;
 
+	public Estudiante(String nombre) {
+		super(nombre, MAX_NIVEL_MAGIA, MAX_PUNTOS_VIDA);
+		this.maximoNivelMagia = MAX_NIVEL_MAGIA;
+		this.maximoPuntosVida = MAX_PUNTOS_VIDA;
+	}
+
 	public Estudiante() {
 		super("Estudiante de Hogwarts", MAX_NIVEL_MAGIA, MAX_PUNTOS_VIDA);
 		this.maximoNivelMagia = MAX_NIVEL_MAGIA;

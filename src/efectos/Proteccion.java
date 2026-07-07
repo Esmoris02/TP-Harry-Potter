@@ -2,7 +2,7 @@ package efectos;
 
 import modelos.Personaje;
 
-public class Proteccion implements Efecto{
+public class Proteccion implements Efecto {
 	private double resistencia;
 
 	public Proteccion(double resistencia) {
@@ -18,5 +18,5 @@ public class Proteccion implements Efecto{
 	public boolean haExpirado() {
 		return true;
 	}
-	
+
 }

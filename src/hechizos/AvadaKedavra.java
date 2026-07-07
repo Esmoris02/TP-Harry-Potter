@@ -8,10 +8,10 @@ import modelos.Personaje;
 public class AvadaKedavra extends HechizoBase {
 	private static final String NOMBRE_HECHIZO = "AvadaKedabra";
 	private static final double DAÑO_BASE = 999;
-	private static final double COSTE_MAGIA = 75;
+	private static final double COSTE_MAGIA = 65;
 
 	public AvadaKedavra() {
-		super(NOMBRE_HECHIZO, COSTE_MAGIA);
+		super(NOMBRE_HECHIZO, COSTE_MAGIA, TipoHechizo.OSCURO);
 	}
 
 	@Override
@@ -21,11 +21,11 @@ public class AvadaKedavra extends HechizoBase {
 		if (resultado < lanzador.obtenerProbabilidadImpactoHechizoFatal()) {
 			this.efectoCausado = new Daño(DAÑO_BASE);
 			objetivo.recibirEfecto(efectoCausado);
-			System.out.println(lanzador.obtenerNombre() + " ataca con " + this.getNombre() + " a " + objetivo.obtenerNombre()
-					+ " y acierta.");
+			System.out.println(lanzador.obtenerNombre() + " ataca con " + this.obtenerNombre() + " a "
+					+ objetivo.obtenerNombre() + " y acierta.");
 		} else {
-			System.out.println(lanzador.obtenerNombre() + " ataca con " + this.getNombre() + " a " + objetivo.obtenerNombre()
-					+ " pero no acierta.");
+			System.out.println(lanzador.obtenerNombre() + " ataca con " + this.obtenerNombre() + " a "
+					+ objetivo.obtenerNombre() + " pero no acierta.");
 		}
 	}
 

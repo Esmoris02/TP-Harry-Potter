@@ -6,13 +6,13 @@ import modelos.Personaje;
 
 public class Episkey extends HechizoBase {
 	private static final String NOMBRE_HECHIZO = "Episkey";
-	private static final int COSTE_MAGIA = 30;
+	private static final int COSTE_MAGIA = 20;
 	private static final String NOMBRE_EFECTO_PROLONGADO = "Regeneracion";
 	private static final double CURACION_BASE = 16.6;
 	protected int duracionEnTurnos = 2;
 
 	public Episkey() {
-		super(NOMBRE_HECHIZO, COSTE_MAGIA);
+		super(NOMBRE_HECHIZO, COSTE_MAGIA, TipoHechizo.CURACION);
 	}
 
 	@Override
@@ -22,7 +22,7 @@ public class Episkey extends HechizoBase {
 				duracionEnTurnos, NOMBRE_EFECTO_PROLONGADO);
 
 		lanzador.recibirEfecto(efectoCausado);
-		System.out.println(lanzador.obtenerNombre() + " se cura con " + this.getNombre());
+		System.out.println(lanzador.obtenerNombre() + " se cura con " + this.obtenerNombre());
 	}
 
 }

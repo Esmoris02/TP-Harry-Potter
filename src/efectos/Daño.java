@@ -18,5 +18,4 @@ public class Daño implements Efecto {
 	public boolean haExpirado() {
 		return true;
 	}
-
 }

@@ -2,7 +2,7 @@ package efectos;
 
 import modelos.Personaje;
 
-public class EfectoProlongado extends EfectoDecorador{
+public class EfectoProlongado extends EfectoDecorador {
 	private int turnosRestantes;
 	private boolean efectoBaseAplicado;
 	private String nombreEfectoAdicional;
@@ -20,12 +20,11 @@ public class EfectoProlongado extends EfectoDecorador{
 		if (!efectoBaseAplicado) {
 			efectoBase.aplicar(objetivo);
 			efectoBaseAplicado = true;
-			return; 
+			return;
 		}
 
 		// aplicar efecto prolongado mientras dure en el siguiente turno
 		if (turnosRestantes > 0) {
-			System.out.println(objetivo.obtenerNombre() + " experimenta " + nombreEfectoAdicional);
 			efectoAdicional.aplicar(objetivo);
 			turnosRestantes--;
 		}
@@ -35,4 +34,10 @@ public class EfectoProlongado extends EfectoDecorador{
 	public boolean haExpirado() {
 		return 0 == turnosRestantes;
 	}
+
+	@Override
+	public String toString() {
+		return nombreEfectoAdicional + "(" + turnosRestantes + ")";
+	}
+
 }
