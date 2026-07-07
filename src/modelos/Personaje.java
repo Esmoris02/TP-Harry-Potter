@@ -17,8 +17,8 @@ public abstract class Personaje {
 	protected double maximoPuntosVida;
 	protected double nivelProteccion;
 	protected boolean aturdido;
-	public List<HechizoBase> hechizosDisponibles = new LinkedList<>();
-	public List<Efecto> efectosAAplicar = new LinkedList<>();
+	protected List<HechizoBase> hechizosDisponibles = new LinkedList<>();
+	protected List<Efecto> efectosAAplicar = new LinkedList<>();
 
 	public Personaje(String nombre, double nivelMagia, double puntosVida) {
 		this.nombre = nombre;
